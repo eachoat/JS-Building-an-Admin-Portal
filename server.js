@@ -8,6 +8,16 @@ const liveServer = require('live-server');
 
 async function main() {
 
+    const response = await fetch('http://localhost:3001/listBooks')
+    const data = await response.json()
+
+     data.forEach(renderBook)
+}
+
+function renderBook(book) {
+    const root = document.getElementById('root')
+  
+
     app.use(cors());
 
     app.use(bodyParser.json());
